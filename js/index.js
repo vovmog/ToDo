@@ -39,7 +39,7 @@ $("td.hours").live("click", function (e) {
                 for (i = 0; i < data.length; i++) {
                     res += "<option value='" + data[i].id + "'>" + data[i].name + "</option>";
                 }
-                res += "</select><br/><button class='btn btn-danger btn-small' id='but_del' name='del'>удалить</button><button class='btn btn-inverse btn-small' id='add_ok' name='ok'>OK</button>"
+                res += "</select><br/><button class='btn btn-danger btn-small' id='but_del' name='del'>удалить</button><button class='btn btn-inverse btn-small' id='add_ok' name='ok'>OK</button>";
                 $("#add_in").append(res);
             })
 
@@ -50,9 +50,9 @@ $("td.hours").live("click", function (e) {
     var $funct = "change(" + $id_worker + "," + $day + ")";
     $("#add_ok").attr("onclick", $funct);
     var $funct_del = "del(" + $id_worker + "," + $day + ")";
-    $("#but_del").attr("onclick", $funct_del);
+    $("body #add_in #but_del").attr("onclick", $funct_del);
 
-    if (typeof(res) !== "undefined" || $("#workplace").length !== 0) {
+    if (typeof(res) !== "undefined" || $("div #workplace").length !== 0) {
         $('#add_in').css({
             'position':'absolute',
             'top':this.offsetTop + 50,
@@ -71,10 +71,10 @@ $("td.hours").live("click", function (e) {
         /////Установка селекта места работы/////
         var place = $(this).children(".workplace").text().toString();
         if (!place) {
-            $("#but_del").css("display", "none");
+            $("div #but_del").css("display", "none");
             place = "1";
-        } else $("#but_del").css("display", "block");
-        $("#workplace :contains(" + place + ")").attr("selected", "selected");
+        } else $("#but_del").show()//css("display", "block");
+        $("div #workplace :contains(" + place + ")").attr("selected", "selected");
 
     }
 })
@@ -112,13 +112,9 @@ function name_enable(atr) {
 function go() {
     alert("GO!");
 }
-function add_worker() {
-
-
-}
 function change($id, $day) {
     var $hours = $(".add option:selected").text();
-    var $workplace = $("#workplace option:selected").val();
+    var $workplace = $("div #workplace option:selected").val();
     var $month = $("table").attr("id").replace("_"," ");
     window.location = "/index.php?change&name=" + $id + "&day=" + $day + "&hours=" + $hours + "&workplace=" + $workplace + "&month=" + $month;
 
@@ -147,7 +143,7 @@ $(function () {
     for (x = 0; x <= tr_length; x++) {
         for (i = 1; i < th_length; i++) {
             var date = new Date(month + " " + i + " " + year);
-            var day = date.getDay();
+            day = date.getDay();
             if (day == 6 || day == 0) {
                 $("td").eq(i + (th_length) * x).css({"background-color":"#c0c0c0", "font-weight":"bold"});
             }
@@ -159,7 +155,7 @@ function add_worker() {
     var worker = $(".name");
     var name = [];
     for (i = 0; i < worker.length; i++) {
-        push = "'" + worker[i].textContent + "'"
+        push = "'" + worker[i].textContent + "'";
         name.push(push);
     }
     name = name.join(",");
@@ -177,30 +173,36 @@ function add_worker() {
                 res += "</select><button class='btn btn-inverse btn-small' name='ok' onclick='add_worker_ins()'>OK</button></div>"
                 $("#add_worker").after(res);
             })
-    } else $("#worker").remove();
+    } else $("body #worker").remove();
 }
 function add_worker_ins() {
-    var sel = $("#worker option:selected").text()
-    var val = $("#worker option:selected").val()
-    var td = $("table tr:last").html();
+    var sel = $("body #worker option:selected").text()
+    var val = $("body #worker option:selected").val()
+    var td = $("body table tr:last").html();
     td = "<tr id='name_" + val + "'>" + td + "</tr>";
     if (val) {
         $(".table tbody").append(td);
-        $("table tr:last .filled").text("");
+        $("body table tr:last td").text("");
         $("table tr:last .filled").removeClass("filled");
         $("table tr:last td:first").text(sel);
-        $("#worker option:selected").remove();
+        if(!$("body table tr:last td").hasClass("hours")){
+            $("body table tr:last td").addClass("hours");
+            $("body table tr:last td:first").removeClass("hours");
+        }
+        $("body #worker option:selected").remove();
     }
 }
 function edit() {
     $("#edit div:first").animate({
         height:'500px'
     }, 500, function () {
-        $("#edit div a").attr("onclick", "down()");
-        $("#edit .left_edit").show();
-        $("#edit .right_edit").show();
-        $("#edit .left_edit").css("display", "inline-block")
-        $("#edit .right_edit").css("display", "inline-block")
+        $("body #edit div a").attr("onclick", "down()");
+        var edit_left = $("body #edit .left_edit");
+        var edit_right = $("body #edit .right_edit");
+        edit_left.show();
+        edit_right.show();
+        edit_left.css("display", "inline-block")
+        edit_right.css("display", "inline-block")
 
     });
 }

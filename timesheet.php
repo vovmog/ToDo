@@ -8,7 +8,7 @@ $sql = "SELECT id,name FROM workplace";
 $res = request($sql);
 $result_workplace = res_assoc($res);
 foreach ($result_workplace as $index => $val) {
-    $arr_workplace[$val[id]] = $val[name];
+    $arr_workplace[$val['id']] = $val['name'];
 }
 if (isset($_GET["month_of_year"])) {
     $str_month = explode("_", $_GET["month_of_year"]);
@@ -39,14 +39,20 @@ $str_month = explode("_", $month_of_the_year);
     $sql = "SELECT DISTINCT month,year FROM timesheet";
     $res = request($sql);
     $result = res_assoc($res);
+    $chk=1;
+    if(in_array('January',$result[0])){
+        echo "HELLO!!!!";
+    };
     foreach ($result as $key => $val) {
         echo "<option value=$val[month]" . "_" . $val[year] . " ";
         if ($val[month] == $month AND $val[year] == $year) {
             echo "selected";
+            $chk=0;
         }
         echo ">" . rus_month($val[month]) . " " . $val[year];
         echo "</option>";
     }
+    if($chk) echo "<option value ".$month."_".$year." selected>" . rus_month($month) . " " . $year."</option>";
 
     ?>
 </select>
