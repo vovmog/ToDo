@@ -1,0 +1,60 @@
+[03-Nov-2012 09:50:59] PHP Warning:  mysqli::mysqli() [<a href='mysqli.mysqli'>mysqli.mysqli</a>]: (HY000/2005): Unknown MySQL server host 'openserver' (1) in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 4
+[03-Nov-2012 09:50:59] PHP Warning:  mysqli::query() [<a href='mysqli.query'>mysqli.query</a>]: Couldn't fetch mysqli in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 5
+[03-Nov-2012 09:52:36] PHP Warning:  mysqli::mysqli() [<a href='mysqli.mysqli'>mysqli.mysqli</a>]: (28000/1045): Access denied for user 'u764452471_vovan'@'10.2.1.5' (using password: YES) in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 4
+[03-Nov-2012 09:52:36] PHP Warning:  mysqli::query() [<a href='mysqli.query'>mysqli.query</a>]: Couldn't fetch mysqli in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 5
+[03-Nov-2012 09:54:20] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 09:54:50] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 09:54:53] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 09:54:58] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 09:55:09] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 09:55:12] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 09:58:51] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 10:02:06] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 10:02:09] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 31
+[03-Nov-2012 10:08:10] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 10:10:43] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 10:11:05] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 10:12:51] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 10:12:55] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 10:13:33] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 33
+[03-Nov-2012 10:14:19] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 5
+[03-Nov-2012 10:14:35] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 33
+[03-Nov-2012 10:15:09] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 33
+[03-Nov-2012 10:33:01] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 33
+[03-Nov-2012 10:36:28] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 33
+[03-Nov-2012 10:38:35] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 33
+[03-Nov-2012 10:39:38] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 10:52:02] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 11:07:43] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 11:07:46] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 11:07:53] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 11:12:54] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/u764452471/public_html/ToDo/SQL/sql_request.php on line 32
+[03-Nov-2012 11:54:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 11:54:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 11:54:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 11:54:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 11:54:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 11:54:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 11:54:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 11:54:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:24:46] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:24:46] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:24:46] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:24:46] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:24:46] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:24:46] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:24:46] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:24:46] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:27:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:27:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:27:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:27:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:27:36] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:29:38] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:29:38] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:29:38] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:29:38] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[03-Nov-2012 12:29:38] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/timesheet.php on line 38
+[06-Nov-2012 12:08:10] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/insert_timesheet_action.php on line 14
+[10-Nov-2012 03:01:28] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/insert_timesheet_action.php on line 14
+[13-Nov-2012 09:25:29] PHP Warning:  Invalid argument supplied for foreach() in /home/u764452471/public_html/ToDo/insert_timesheet_action.php on line 14

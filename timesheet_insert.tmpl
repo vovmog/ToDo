@@ -1,0 +1,120 @@
+</head>
+<body>
+<script src="js/index.js"></script>
+<?php
+$sql = "SELECT id,name FROM name";
+$res = request($sql);
+$result_name = res_assoc($res);
+
+/////////////Формируем селект чаов и места работы////////////////////////////////////////////////
+$option_hours = "<option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+                <option value='7'>7</option>
+                <option value='8' selected>8</option>
+                <option value='9'>9</option>
+                <option value='10'>10</option>
+                <option value='11'>11</option>
+                <option value='12'>12</option>
+                <option value='13'>13</option>
+                <option value='14'>14</option>
+                <option value='15'>15</option>
+                <option value='16'>16</option>
+                <option value='17'>17</option>
+                <option value='18'>18</option>
+                <option value='19'>19</option>
+                <option value='20'>20</option>
+                <option value='21'>21</option>
+                <option value='22'>22</option>
+                <option value='23'>23</option>
+                <option value='24'>24</option>";
+
+$sql = "SELECT id,name FROM workplace";
+$res = request($sql);
+$result_workplace = res_assoc($res);
+for ($i = 0; $i < count($result_workplace); $i++) {
+    $option_workplace .= "<option value='" . $result_workplace[$i][id] . "'>" . $result_workplace[$i][name] . "</option>";
+}
+?>
+
+<h1>А ты сегодня работал?</h1>
+
+
+<div class="row-fluid main">
+    <!--  -----------------------------------Первый блок с вопросом ДА НЕТ --------------------------  -------------------->
+    <div id="hide">
+        <div class="span1 offset5">
+            <button class="btn btn-large btn-block" type="button" onclick="YES()">ДА
+            </button>
+        </div>
+        <div class="span1">
+            <button class="btn btn-large btn-block " type="button" onclick="NO()">НЕТ
+            </button>
+        </div>
+    </div>
+    <!--  -----------------------------------заполнение табеля --------------------------  -------------------->
+
+    <div id="In_Timesheet" class="offset2 hide">
+        <form name="timesheet" action="insert_timesheet_action.php" method="GET">
+            <input type="hiden" name="day" value="<? echo date(d) ?>">
+            <table>
+                <thead>
+                <tr>
+                    <td>имя</td>
+                    <td>
+                        <p>обьект</p>
+                        <select name="Place" onchange="work_Place()">
+                            <?php echo $option_workplace ?>
+                        </select>
+                    </td>
+                    <td><p>часы</p>
+                        <select name='hours' class='span11' onchange="work_hours()">
+                            <? echo $option_hours ?>
+                        </select>
+                    </td>
+                    <td>примечание</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                for ($i = 0; $i < count($result_name); $i++) {
+                    $output_row = "<tr>
+                <td>
+                    <label class='checkbox'>
+                        <input type='checkbox' value='" . $result_name[$i][id] . "'onchange='name_enable(this)'>" . $result_name[$i][name] . "
+                    </label>
+                </td>
+                <td>
+                    <select class='Place' name='" . $result_name[$i][id] . "_Place'>
+                        " . $option_workplace . "
+                    </select>
+                </td>
+                <td>
+                    <select name='" . $result_name[$i][id] . "_hours' class='hours span11'>
+                        " . $option_hours . "
+                    </select>
+                </td>
+                <td><input name='" . $result_name[$i][id] . "_comment' type='text' placeholder='Примечание'></td>
+            </tr>";
+                    echo $output_row;
+                }
+                ?>
+                </tbody>
+            </table>
+
+            <button title='Добавить'
+                    rel='tooltip'
+                    data-trigger='hover'
+                    class='btn btn-mini btn-success
+                    ' type='submit'
+                    onclick="add_name()">
+                <i id="icon" class='icon-plus icon-white'></i>
+            </button>
+            <input type="submit">
+        </form>
+    </div>
+
+</div>
