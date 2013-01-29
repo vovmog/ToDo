@@ -1,30 +1,29 @@
 <?php
 require_once('./SQL/sql_request.php');
 require_once('func.php');
-$sql = "SELECT  COUNT(DISTINCT id_name) FROM timesheet WHERE month ='January' AND year='2013'";
-$result1 = request($sql);
-$sql = "SELECT  id_name,day,workplace,hourse FROM timesheet  WHERE month ='January' AND year='2013' GROUP BY day";
+$tmp = array();
+$tmp['one']['two']['three']= 123;
+$tmp['one']['two_two']=321;
+echo "<pre>";print_r ($tmp);echo"</pre>";
+$sql = "SELECT id_name,name.name,day,workplace.name AS workplace_name,hourse,timesheet.comment
+        FROM name,timesheet,workplace
+        WHERE name.id = timesheet.id_name AND timesheet.workplace = workplace.id AND month ='January' AND year='2013'";
 $result = request($sql);
 $res = res_assoc($result);
-$sql = "SELECT ";
-echo "<pre>";print_r (res_assoc($result1));echo"</pre>";
+echo $sql."</br>";
 echo "<pre>";print_r ($res);echo"</pre>";
-//$arr = array('user_1'=> array('1_day' => array('workplace' => '1_place','hourse' =>8),
-//                            '2_day' =>array('workplace' => '1_place','hourse' =>8)),
-//            'user_2'=> array('1_day' => array('workplace' => '1_place','hourse' =>8),
-//                             '2_day' =>array('workplace' => '1_place','hourse' =>8)));
-//echo "<pre>";print_r ($arr);"</pre>";
-//echo $arr['user_1']['1_day']['hourse']."</br>";
-//$arr2['a']['b']['c']='abc';
-//echo $arr2['a']['b']['c'];
-//$user = array();
-//$day = array();
+
 $user = array();
 foreach($res as $key => $val){
-   //$user[$val['id_name'][$val['day'][$val['workplace'][$val['hourse']]]]];
-    $user[$val['id_name']][$val['day']]['workplace']= $val['workplace'];
-    $user[$val['id_name']][$val['day']]['hourse']= $val['hourse'];
+    $user[$val['name']]['user_id']= $val['id_name'];
+    $user[$val['name']][$val['day']]['workplace']= $val['workplace_name'];
+    $user[$val['name']][$val['day']]['hourse']= $val['hourse'];
+    $user[$val['name']][$val['day']]['comment']= $val['comment'];
+    $user[$val['name']][$val['day']]['id_name']= $val['id_name'];
     }
+$key = array_search('1',$user);
+echo $key."</br><hr>";
+echo "<pre>";var_dump($user);echo"</pre>";
 echo "<pre>";print_r($user);echo"</pre>";
 echo "count ".count($user);
 $keys = array_keys ($user);
@@ -32,15 +31,17 @@ print_r($keys);
 sort($keys);
 
 print_r($keys);
-echo implode(",",$keys);
+$str_name =implode(",",$keys);
+echo $str_name;
+echo "</br></br>".$user[0]['4']['hourse'];
 
-
-/*echo "<table>";
-for ($i=0;$i<count($user);$i++){
-    echo "<tr><td>";
-    for ($x=0;$x<31;$x++){
-        echo "<td></td>"
+echo "<table>";
+foreach($user as $name => $day){
+    echo "<tr><td>".$name."</td>";
+    for ($i=1;$i<=31;$i++){
+    echo "<td>h=".$user[$name][$i]['hourse']." <td>";
     }
-}*/
+    echo "<tr>";
 
-?> 
+}
+

@@ -8,5 +8,3 @@ function rus_month($in)
         'October' => "Октябрь", 'November' => "Ноябрь", 'December' => "Декабрь");
     return $month[$in];
 }
-
-?>

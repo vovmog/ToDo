@@ -16,4 +16,3 @@ if (isset($_GET['worker'])) {
     $arr_name = res_assoc($res);
     echo json_encode($arr_name);
 }
-?>

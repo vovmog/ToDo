@@ -35,8 +35,9 @@ $option_hours = "<option value='1'>1</option>
 $sql = "SELECT id,name FROM workplace";
 $res = request($sql);
 $result_workplace = res_assoc($res);
+$option_workplace = "";
 for ($i = 0; $i < count($result_workplace); $i++) {
-    $option_workplace .= "<option value='" . $result_workplace[$i][id] . "'>" . $result_workplace[$i][name] . "</option>";
+    $option_workplace .= "<option value='" . $result_workplace[$i]['id'] . "'>" . $result_workplace[$i]['name'] . "</option>";
 }
 ?>
 
@@ -59,7 +60,7 @@ for ($i = 0; $i < count($result_workplace); $i++) {
 
     <div id="In_Timesheet" class="offset2 hide">
         <form name="timesheet" action="insert_timesheet_action.php" method="GET">
-            <input type="hiden" name="day" value="<? echo date(d) ?>">
+            <input type="hidden" name="day" value="<? echo date('d')  ?>">
             <table>
                 <thead>
                 <tr>
@@ -84,20 +85,20 @@ for ($i = 0; $i < count($result_workplace); $i++) {
                     $output_row = "<tr>
                 <td>
                     <label class='checkbox'>
-                        <input type='checkbox' value='" . $result_name[$i][id] . "'onchange='name_enable(this)'>" . $result_name[$i][name] . "
+                        <input type='checkbox' value='" . $result_name[$i]['id'] . "'onchange='name_enable(this)'>" . $result_name[$i]['name'] . "
                     </label>
                 </td>
                 <td>
-                    <select class='Place' name='" . $result_name[$i][id] . "_Place'>
+                    <select class='Place' name='" . $result_name[$i]['id'] . "_Place'>
                         " . $option_workplace . "
                     </select>
                 </td>
                 <td>
-                    <select name='" . $result_name[$i][id] . "_hours' class='hours span11'>
+                    <select name='" . $result_name[$i]['id'] . "_hours' class='hours span11'>
                         " . $option_hours . "
                     </select>
                 </td>
-                <td><input name='" . $result_name[$i][id] . "_comment' type='text' placeholder='Примечание'></td>
+                <td><input name='" . $result_name[$i]['id'] . "_comment' type='text' placeholder='Примечание'></td>
             </tr>";
                     echo $output_row;
                 }

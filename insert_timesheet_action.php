@@ -1,7 +1,7 @@
 <?php
 require_once('./SQL/sql_request.php');
 
-$day = $_GET[day];
+$day = $_GET['day'];
 
 //////////////// Проверка последнего месца БД ////////////////////////////////
 $month_of_year = (date("F_Y"));
@@ -31,12 +31,11 @@ if (!$result_user_id_arr) $result_user_id_arr = Array();
 
 $arr_ins = array_slice($_GET, 3);
 
-
 foreach ($arr_ins as $key => $value) {
     $arr_key = explode("_", $key); //разбиваем строку по разделителю _
     $arr_insert[$arr_key[0]][$arr_key[1]] = $value;
 }
-if ($arr_insert) {
+if (is_array($arr_insert)) {
     foreach ($arr_insert as $id => $value) {
         $table = $id . "_" . $month_of_year;
         // echo "<pre>"; print_r($result_user_id_arr); echo "</pre>";

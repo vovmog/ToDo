@@ -73,11 +73,11 @@ $("td.hours").live("click", function (e) {
         if (!place) {
             $("div #but_del").css("display", "none");
             place = "1";
-        } else $("#but_del").show()//css("display", "block");
+        } else $("#but_del").show();//css("display", "block");
         $("div #workplace :contains(" + place + ")").attr("selected", "selected");
 
     }
-})
+});
 function fclose() {
     $("#add_in").slideUp("fast");
 }
@@ -139,7 +139,7 @@ $(function () {
     month_of_year = month + " " + year;
     var day = new Date(month + " 12 " + year);
     var th_length = $(".th td").length; // число столбцов в табеле+колонка с именами
-    var tr_length = $("table tr").length //число строк в табеле+ колонка с числами
+    var tr_length = $("table tr").length() //число строк в табеле+ колонка с числами
     for (x = 0; x <= tr_length; x++) {
         for (i = 1; i < th_length; i++) {
             var date = new Date(month + " " + i + " " + year);
@@ -170,14 +170,14 @@ function add_worker() {
                 for (i = 0; i < data.length; i++) {
                     res += "<option value='" + data[i].id + "'>" + data[i].name + "</option>";
                 }
-                res += "</select><button class='btn btn-inverse btn-small' name='ok' onclick='add_worker_ins()'>OK</button></div>"
+                res += "</select><button class='btn btn-small btn-success' name='ok' onclick='add_worker_ins()'><i id='icon' class='icon-plus icon-white'></i></button></div>"
                 $("#add_worker").after(res);
             })
     } else $("body #worker").remove();
 }
 function add_worker_ins() {
-    var sel = $("body #worker option:selected").text()
-    var val = $("body #worker option:selected").val()
+    var sel = $("body #worker option:selected").text();
+    var val = $("body #worker option:selected").val();
     var td = $("body table tr:last").html();
     td = "<tr id='name_" + val + "'>" + td + "</tr>";
     if (val) {

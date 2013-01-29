@@ -1,5 +1,5 @@
 <?php
-function request($sql, $arr = 'arr', $db = timesheet)
+function request($sql, $arr = 'arr', $db = 'timesheet')
 {
     $mysqli = new mysqli("openserver", "root", "", $db);
     $result = $mysqli->query($sql);
@@ -42,5 +42,3 @@ function mysql_getcolumn($result, $makehash = FALSE)
     else while ($row = $result->fetch_row()) $data[$row{0}] = $row[1];
     return $data;
 }
-
-?>

@@ -9,9 +9,8 @@ $workplace = $_REQUEST["workplace"];
 $month_of_year = explode(" ", $_REQUEST["month"]);
 $month = $month_of_year[0];
 $year = $month_of_year[1];
-$del = $_REQUEST["del"];
+if(isset($_REQUEST["del"]))$del = $_REQUEST["del"];else $del= false;
 $id_month = $name . "_" . $month;
-$del = $_REQUEST["del"];
 
 $sql = "SELECT  hourse FROM timesheet
             WHERE id_name='$name'
@@ -67,4 +66,3 @@ if (count($result)) {
 $str = $month . "_" . $year;
 header('Location: ' . "index.php?month_of_year=$str");
 echo ("Имя = " . $name . "</br>число = " . $day . "</br>часы = " . $hours . "<br/>обьект = " . $workplace . "</br>месяц =" . $month . "</br>" . $id_month);
-?>
