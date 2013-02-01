@@ -91,7 +91,7 @@ function YES() {
 function NO() {
     var dat = new Date();
     var da = dat.getTime();
-    window.location = "./index.php?show_table";
+    window.location = "/index.php?change&chk_day=false";
     $("#hide").hide();
 }
 function work_Place() {
@@ -139,7 +139,7 @@ $(function () {
     month_of_year = month + " " + year;
     var day = new Date(month + " 12 " + year);
     var th_length = $(".th td").length; // число столбцов в табеле+колонка с именами
-    var tr_length = $("table tr").length() //число строк в табеле+ колонка с числами
+    var tr_length = $("table tr").length //число строк в табеле+ колонка с числами
     for (x = 0; x <= tr_length; x++) {
         for (i = 1; i < th_length; i++) {
             var date = new Date(month + " " + i + " " + year);
@@ -201,8 +201,10 @@ function edit() {
         var edit_right = $("body #edit .right_edit");
         edit_left.show();
         edit_right.show();
-        edit_left.css("display", "inline-block")
-        edit_right.css("display", "inline-block")
+        edit_left.css("display", "inline-block");
+        edit_right.css("display", "inline-block");
+        $("#edit a i").removeClass("icon-arrow-up");
+        $("#edit a i").addClass("icon-arrow-down");
 
     });
 }
@@ -213,6 +215,8 @@ function down() {
         $("#edit div a").attr("onclick", "edit()");
         $("#edit .left_edit").hide();
         $("#edit .right_edit").hide();
+        $("#edit a i").removeClass("icon-arrow-down");
+        $("#edit a i").addClass("icon-arrow-up");
 
     });
 }

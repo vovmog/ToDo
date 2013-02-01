@@ -1,6 +1,14 @@
 <?php
 require_once('./SQL/sql_request.php');
-
+if(isset($_GET["chk_day"]) and ($_GET["chk_day"]="false")){
+    $day = (date("d"));
+    $month = date("F");
+    $year = date("Y");
+    $sql = "INSERT INTO chk_day (day_of_year) value ('".$day."_".$month."_".$year."')";
+    $res = request($sql);
+    header('Location: ' . "index.php");
+    exit;
+}
 
 $name = $_REQUEST["name"];
 $day = $_REQUEST["day"];

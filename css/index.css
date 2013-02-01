@@ -82,6 +82,10 @@ button[title='Добавить'] {
     float: left;
 }
 
+.table,.th{
+    font-size: 12px;
+}
+
 .table td {
     text-align: center;
     padding: 0;
@@ -96,7 +100,6 @@ button[title='Добавить'] {
 .th {
     background: #dfdfdf;
     font-weight: bold;
-    font-size: large;
 }
 
 .filled {

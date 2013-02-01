@@ -1,9 +1,21 @@
 # DO NOT REMOVE THIS LINE AND THE LINES BELOW ERRORPAGEID:yBuXaL
 #Защищаем .htaccess файл
+
  <files .htaccess="">
 order allow,deny
 deny from all
  </files>
+
+ Options +FollowSymLinks
+ IndexIgnore */*
+ RewriteEngine on
+
+ # if a directory or a file exists, use it directly
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+
+ # otherwise forward it to index.php
+ RewriteRule . index.php
 
 ErrorDocument 404 /404.html
 # DO NOT REMOVE THIS LINE AND THE LINES ABOVE yBuXaL:ERRORPAGEID

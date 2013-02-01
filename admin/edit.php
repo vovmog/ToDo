@@ -1,9 +1,10 @@
-<div id="edit" xmlns="http://www.w3.org/1999/html">
+<div id="edit">
     <div>
-        <p><a onclick="edit()">режим редактирования</a></p>
+        <p><a onclick="edit()"><i class="icon-arrow-up icon-white"></i>режим редактирования<i class="icon-arrow-up icon-white"></i></a></p>
 
         <div class="left_edit">
             <p>Список работников</p>
+
         </div>
         <div class="right_edit">
             <p>Список обьектов</p>
