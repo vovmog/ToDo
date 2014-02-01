@@ -3,7 +3,7 @@ error_reporting (E_ALL);
 
 require_once("./init.php");
 
-if (!isset($_COOKIE['cook_name']) or $_COOKIE['cook_name'] !== "B_Lock" or isset($_GET["show_table"])) {
+if ($user_obj->role == "guest") {
     require_once("show_table.php");
     exit();
 }
@@ -37,5 +37,6 @@ if (!empty($result) or !empty($res_chk)) { ////Если текущая дата 
 } else { ////Иначе вставляем блок записи табеля
     require_once('timesheet_insert.tmpl');
 }
-require_once('./admin/edit.php');
+//require_once('./admin/edit.php');
+echo $user_obj->login;
 require_once('footer.tmpl');

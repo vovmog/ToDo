@@ -14,6 +14,7 @@ $name = $_REQUEST["name"];
 $day = $_REQUEST["day"];
 $hours = $_REQUEST["hours"];
 $workplace = $_REQUEST["workplace"];
+$comment = $_REQUEST["comment"];
 $month_of_year = explode(" ", $_REQUEST["month"]);
 $month = $month_of_year[0];
 $year = $month_of_year[1];
@@ -36,7 +37,7 @@ if (!$result_user_id_arr) $result_user_id_arr = Array();
 
 if (count($result)) {
     if (!$del) {
-        $sql = "UPDATE timesheet SET hourse='$hours' ,workplace = '$workplace'
+        $sql = "UPDATE timesheet SET hourse='$hours' ,workplace = '$workplace' ,comment = '$comment'
                     WHERE id_name='$name'
                     AND day='$day'
                     AND month='$month'
@@ -59,14 +60,16 @@ if (count($result)) {
                      month,
                      year,
                      hourse,
-                     workplace)
+                     workplace,
+                     comment)
                  VALUES
                     ('$name',
                      '$day',
                      '$month',
                      '$year',
                      '$hours',
-                     '$workplace')";
+                     '$workplace',
+                     '$comment')";
         $res = request($sql);
 
     }

@@ -71,10 +71,10 @@ foreach ($res as $key => $val) {
     foreach ($user as $name => $day) {
         echo "<tr id='name_" . $day['user_id'] . "'><td class='name'>" . $name . "</td>";
         for ($i = 1; $i <= $count_day; $i++) {
-            echo "<td class='hours'>";
+            echo "<td class='hours'";
             if (array_key_exists($i, $user[$name])) {
-                echo "<span class='hourse' title='" . $day[$i]['comment'] . "'>" . $day[$i]['hourse'] . "</span></br>" . "<span class='workplace'>" . $day[$i]['workplace'];
-            }
+                echo " title='" . $day[$i]['comment'] . "'><span class='hourse'>" . $day[$i]['hourse'] . "</span></br>" . "<span class='workplace'>" . $day[$i]['workplace'];
+            }else echo ">";
             echo "</td>";
         }
         echo "</tr>";
@@ -83,7 +83,23 @@ foreach ($res as $key => $val) {
     ?>
 </table>
 <?php
-if (isset($_COOKIE['cook_name']) and  $_COOKIE['cook_name'] == "B_Lock") {
+if ($user_obj->role == "admin") {
     echo "<button class='btn' onclick='add_worker()' id='add_worker'>добавить работника</button>";
+    ?>
+
+    <div id="add">
+        <br/>
+        <p>Добавить место работы или работника</p>
+        <div id='add_work'>
+        <input type='text' accept-charset="utf-8" placeholder="введите название обьекта"/>
+           <button onclick="add_work()">добавить</button>
+        </div>
+        <div id="add_workman">
+            <input type="text" placeholder="Введите имя работника" />
+            <button onclick="add_workman()">добавить</button>
+        </div>
+    </div>
+    <?php
+        ;
 }
 ?>

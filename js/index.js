@@ -1,4 +1,5 @@
-$("td.hours").live("click", function (e) {
+//$(".hours").on("click", function () {)
+$(document).on("click",".hours",function(){
     if ($("#add_in").length == 0) {
         $('body').append("" +
             "<div hidden id='add_in'><p>часы</p><span class='close icon-remove' onclick='fclose()'></span>" +
@@ -35,11 +36,11 @@ $("td.hours").live("click", function (e) {
             async:false,
             dataType:'json'
         }).done(function (data) {
-                res = "<br/><p>Место работы</p><select id='workplace'>";
+                res = "<br/><p>Место работы</p><select id='workplace'><br/>";
                 for (i = 0; i < data.length; i++) {
                     res += "<option value='" + data[i].id + "'>" + data[i].name + "</option>";
                 }
-                res += "</select><br/><button class='btn btn-danger btn-small' id='but_del' name='del'>удалить</button><button class='btn btn-inverse btn-small' id='add_ok' name='ok'>OK</button>";
+                res += "</select><br/><p>Коментарии</p><input type='text' id='comment'/><br/><button class='btn btn-danger btn-small' id='but_del' name='del'>удалить</button><button class='btn btn-inverse btn-small' id='add_ok' name='ok'>OK</button>";
                 $("#add_in").append(res);
             })
 
@@ -74,7 +75,11 @@ $("td.hours").live("click", function (e) {
             $("div #but_del").css("display", "none");
             place = "1";
         } else $("#but_del").show();//css("display", "block");
-        $("div #workplace :contains(" + place + ")").attr("selected", "selected");
+         $("#workplace :contains("+place+")").attr("selected", "selected");
+
+        ////установка коментария////
+        var com = $(this).attr("title");
+        $("#comment").val(com);
 
     }
 });
@@ -116,7 +121,8 @@ function change($id, $day) {
     var $hours = $(".add option:selected").text();
     var $workplace = $("div #workplace option:selected").val();
     var $month = $("table").attr("id").replace("_"," ");
-    window.location = "/index.php?change&name=" + $id + "&day=" + $day + "&hours=" + $hours + "&workplace=" + $workplace + "&month=" + $month;
+    var $comment = $("#comment").val();
+    window.location = "/index.php?change&name=" + $id + "&day=" + $day + "&hours=" + $hours + "&workplace=" + $workplace + "&month=" + $month + "&comment=" + $comment;
 
 }
 function del($id, $day) {
@@ -163,7 +169,7 @@ function add_worker() {
     if ($("#worker").length == 0) {
         $.ajax({
             url:"index.php?ajax&worker&name=" + name,
-            async:false,
+            async:true,
             dataType:'json'
         }).done(function (data) {
                 var res = "<div id='worker'><select>";
@@ -219,4 +225,38 @@ function down() {
         $("#edit a i").addClass("icon-arrow-up");
 
     });
+}
+function exit(){
+    window.location = "/index.php?exit";
+}
+
+//Tooltip//
+$("#login a").tooltip("hide");
+
+function add_work(){
+    var txt = $("body #add_work input").val();
+    if (txt){
+        $.ajax({
+            url:"index.php?ajax&add_work=" + txt,
+            async:true,
+            dataType:'json'
+        }).done(function (data) {
+                alert (data);
+                $("body #add_work input").attr({ value: "" });
+            });
+    }
+}
+
+function add_workman(){
+    var txt = $("body #add_workman input").val();
+    if (txt){
+        $.ajax({
+            url:"index.php?ajax&add_workman=" + txt,
+            async:true,
+            dataType:'json'
+        }).done(function (data) {
+                alert (data);
+                $("body #add_workman input").attr({ value: "" });
+            });
+    }
 }

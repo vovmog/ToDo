@@ -22,6 +22,4 @@ function stripSlash(&$data)
     return is_array($data) ? array_map('stripSlashes', $data) : stripslashes($data);
 }
 
-$user = new user();
-
-echo $_SESSION['id'];
+$user_obj = new user();

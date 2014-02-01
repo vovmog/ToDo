@@ -144,5 +144,34 @@ button[title='Добавить'] {
 #edit .left_edit, #edit .right_edit {
     display: none;
     width: 49%;
-
+}
+#login{
+    position: fixed;
+    top: -10px;
+    right: 20px;
+    width: 30px;
+    padding-top: 1px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #9F9F9F;
+}
+#login a{
+    color: #fff;
+    bottom: 0px;
+    position: relative;
+    top:3px;
+}
+#login a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+#login_modal{
+    width:250px;
+}
+#login_modal .modal{
+    width:250px;
+}
+#login_modal form{
+    margin:0;
 }

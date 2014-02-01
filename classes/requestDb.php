@@ -8,14 +8,15 @@ class requestDb{
     public  $safe_sql;
     function __construct(){
         $this->DbConn = new mysqli(self::SERVER,self::USER,self::PASS,self::DB_name);
+        $this->DbConn->set_charset("utf8");
     }
     public function safe($sql) {
         $this->safe_sql = trim(strip_tags($this->DbConn->real_escape_string($sql)));
         return $this->safe_sql;
     }
-    public function request($sql,$in=FALSE){
+    public function request($sql,$in='in'){//
         $res = $this->DbConn->query($sql);
-        if($in){
+        if($in=='out'){
             $res_arr = array();
             $res_arr = $res->fetch_all(MYSQLI_ASSOC);
             /* while ($row = $res->fetch_assoc()) {

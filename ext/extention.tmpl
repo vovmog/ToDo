@@ -1,0 +1,32 @@
+<div id="login">
+    <?php
+    if($user_obj->role == "admin" or $user_obj->role == "user"){
+    echo "<a data-toggle='modal' data-placement='bottom' class='btn-mini' role='button' id='exit' onclick='exit()' title='выход'>out</a>";
+    }else echo "<a href='#login_modal' role='button' class='btn-mini' data-placement='bottom' data-toggle='modal' title='Вход'>IN</a>";
+    ?>
+
+</div>
+
+<!-- Modal -->
+<div id="login_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form  action="./" method="post">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Вход</h3>
+        </div>
+        <div class="modal-body">
+            <p>Введите логин</p>
+            <input name="login" type="text">
+            <p>Введите пароль</p>
+            <input name="password" type="password">
+            <label class="checkbox">
+                <input name="remember" type="checkbox"> запомнить
+            </label>
+        </div>
+        <div class="modal-footer">
+            <div class="pagination-centered">
+                <button class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </form>
+</div>
