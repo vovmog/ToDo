@@ -105,7 +105,7 @@ function work_Place() {
 }
 function work_hours() {
     var val = $("thead select[name='hours']").val();
-    $("tbody select.hours:not([disabled]").val(val);
+    $("tbody select.hours:not([disabled])").val(val);
 }
 function name_enable(atr) {
     if ($(atr).closest("tr").find("select").eq(1).attr('disabled')) {
