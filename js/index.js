@@ -83,6 +83,86 @@ $(document).on("click",".hours",function(){
 
     }
 });
+
+/////////// обработка клика по дню//////////////////
+
+$(document).on("click",".day",function(){
+
+    //alert('ok');
+
+    if ($("#add_in").length == 0) {
+        $('body').append("" +
+        "<div hidden id='add_in'><p>часы</p><span class='close icon-remove' onclick='fclose()'></span>" +
+        "<select class='add' type='text'>" +
+        "<option value='1'>1</option>" +
+        "<option value='2'>2</option>" +
+        "<option value='3'>3</option>" +
+        "<option value='4'>4</option>" +
+        "<option value='5'>5</option>" +
+        "<option value='6'>6</option>" +
+        "<option value='7'>7</option>" +
+        "<option value='8'>8</option>" +
+        "<option value='9'>9</option>" +
+        "<option value='10'>10</option>" +
+        "<option value='11'>11</option>" +
+        "<option value='12'>12</option>" +
+        "<option value='13'>13</option>" +
+        "<option value='14'>14</option>" +
+        "<option value='15'>15</option>" +
+        "<option value='16'>16</option>" +
+        "<option value='17'>17</option>" +
+        "<option value='18'>18</option>" +
+        "<option value='19'>19</option>" +
+        "<option value='20'>20</option>" +
+        "<option value='21'>21</option>" +
+        "<option value='22'>22</option>" +
+        "<option value='23'>23</option>" +
+        "<option value='24'>24</option>" +
+        "</div>");
+
+        var res;
+        $.ajax({
+            url:"index.php?ajax&place", //url:"ajax/index.php?place",
+            async:false,
+            dataType:'json'
+        }).done(function (data) {
+            res = "<br/><p>Место работы</p><select id='workplace'><br/>";
+            for (i = 0; i < data.length; i++) {
+                res += "<option value='" + data[i].id + "'>" + data[i].name + "</option>";
+            }
+            res += "</select><br/><p>Коментарии</p><input type='text' id='comment'/><br/><button class='btn btn-danger btn-small' id='but_del' name='del'>удалить</button><button class='btn btn-inverse btn-small' id='add_ok' name='ok'>OK</button>";
+            $("#add_in").append(res);
+        })
+
+    }
+
+   // var $id_worker = $(this).closest("tr").attr("id").substring(5);
+    var $day = this.cellIndex;
+    //var $funct = "change(" + $id_worker + "," + $day + ")";
+    //$("#add_ok").attr("onclick", $funct);
+    //var $funct_del = "del(" + $id_worker + "," + $day + ")";
+    //$("body #add_in #but_del").attr("onclick", $funct_del);
+
+    if (typeof(res) !== "undefined" || $("div #workplace").length !== 0) {
+        $('#add_in').css({
+            'position':'absolute',
+            'top':this.offsetTop + 50,
+            'left':this.offsetLeft - 50});
+        $('.add').css({
+            'width':'50px'
+        });
+
+        $("#add_in").slideDown("fast");
+
+
+    }
+
+});
+
+
+
+//////////////////////////////////////////////////////
+
 function fclose() {
     $("#add_in").slideUp("fast");
 }
