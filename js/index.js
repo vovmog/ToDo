@@ -138,8 +138,8 @@ $(document).on("click",".day",function(){
 
    // var $id_worker = $(this).closest("tr").attr("id").substring(5);
     var $day = this.cellIndex;
-    //var $funct = "change(" + $id_worker + "," + $day + ")";
-    //$("#add_ok").attr("onclick", $funct);
+    var $funct = "gr_change(" + $day + ")";
+    $("#add_ok").attr("onclick", $funct);
     //var $funct_del = "del(" + $id_worker + "," + $day + ")";
     //$("body #add_in #but_del").attr("onclick", $funct_del);
 
@@ -205,6 +205,16 @@ function change($id, $day) {
     window.location = "/index.php?change&name=" + $id + "&day=" + $day + "&hours=" + $hours + "&workplace=" + $workplace + "&month=" + $month + "&comment=" + $comment;
 
 }
+
+function gr_change($day) {
+    var $hours = $(".add option:selected").text();
+    var $workplace = $("div #workplace option:selected").val();
+    var $month = $("table").attr("id").replace("_"," ");
+    var $comment = $("#comment").val();
+    window.location = "/index.php?gr_change&day=" + $day + "&hours=" + $hours + "&workplace=" + $workplace + "&month=" + $month + "&comment=" + $comment;
+
+}
+
 function del($id, $day) {
     var $month = $("table").attr("id").replace("_"," ");
     window.location = "/change.php?name=" + $id + "&day=" + $day + "&del=true" + "&month=" + $month;

@@ -14,6 +14,10 @@ if (isset($_GET["ajax"])) {
 if (isset($_GET["change"])) {
     require_once("./change.php");
     exit();
+    }
+if (isset($_GET["gr_change"])) {
+    require_once("./gr_change.php");
+    exit();
 }
 ////////////// Включение библиотек и сторонних файлов //////////////////////////
 require_once('./SQL/sql_request.php');

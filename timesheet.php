@@ -65,7 +65,7 @@ foreach ($res as $key => $val) {
     echo "<td>Имя</td>";
     $count_day = intval(date("t", strtotime($month . " " . $year)));
     for ($i = 1; $i <= $count_day; $i++) {
-        echo "<td>$i</td>\n";
+        echo "<td class='day'>$i</td>\n";
     }
     echo "</tr>\n";
     foreach ($user as $name => $day) {
