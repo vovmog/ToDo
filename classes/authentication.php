@@ -6,7 +6,7 @@
 class authentication
 {
 
-    const SALT = "B_Lock";
+    const SALT = "";
     const METHOD = 'aes128';
     const IV = "1234567812345678";
     public $user_id = 0;
